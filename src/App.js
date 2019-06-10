@@ -38,10 +38,15 @@ class App extends Component {
       currentScore: newScore,
       rightWrong: "You guessed correctly!"
     });
-    if(newScore > this.state.topScore) {
+    if(newScore === 18) {
       this.setState({
-        topScore: newScore,
-        rightWrong: "You set a new Top Score!!"
+        rightWrong: "You win! Play again?",
+        topScore: newScore
+      });
+    }
+    else if(newScore > this.state.topScore) {
+      this.setState({
+        topScore: newScore
       });
     }
   }
@@ -51,7 +56,7 @@ class App extends Component {
     this.setState({
       currentScore: 0,
       topScore: this.state.topScore,
-      rightWrong: "Oops, you guessed incorrectly!",
+      rightWrong: "Oops, you guessed incorrectly! Play again?",
       clicked: []
     });
   }
@@ -62,8 +67,11 @@ class App extends Component {
     rescuebots.sort(function(a, b){return 0.5 - Math.random()});
     // console.log(rescuebots);
     // rescuebots.filter(function(index){return index <10});
-    let temprescuebots = rescuebots.slice(0, 10);
-    this.state.rescuebots = temprescuebots;
+    const tempRescuebots = rescuebots.slice(0, 10);
+    this.state.rescuebots = tempRescuebots;
+    // this.setState({
+    //   rescuebots: tempRescuebots
+    // });
 
     
     return (
