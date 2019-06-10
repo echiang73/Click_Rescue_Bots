@@ -11,7 +11,7 @@ class App extends Component {
     rescuebots,
     currentScore: 0,
     topScore: 0,
-    rightWrong: "Click an image to begin!",
+    rightWrong: "ReactJS Clicky Game: Click an image to begin!",
     clicked: []
   };
 
@@ -56,7 +56,7 @@ class App extends Component {
     this.setState({
       currentScore: 0,
       topScore: this.state.topScore,
-      rightWrong: "Oops, you guessed incorrectly! Play again?",
+      rightWrong: "Oops, you already clicked that! Play again?",
       clicked: []
     });
   }
@@ -67,8 +67,8 @@ class App extends Component {
     rescuebots.sort(function(a, b){return 0.5 - Math.random()});
     // console.log(rescuebots);
     // rescuebots.filter(function(index){return index <10});
-    const tempRescuebots = rescuebots.slice(0, 10);
-    this.state.rescuebots = tempRescuebots;
+    // let tempRescuebots = rescuebots.slice(0, 10);
+    // this.state.rescuebots = tempRescuebots;
     // this.setState({
     //   rescuebots: tempRescuebots
     // });
@@ -87,7 +87,7 @@ class App extends Component {
         </Title>
         
 
-        {this.state.rescuebots.map(rescuebot => (
+        {this.state.rescuebots.slice(0, 10).map(rescuebot => (
           <RescuebotCard
             handleClick={this.handleClick}
             id={rescuebot.id}

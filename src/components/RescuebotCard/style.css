@@ -52,3 +52,15 @@
 .card > .remove:hover {
   color: #d50000;
 }
+
+.card:hover {
+  /* transform: rotate(360deg) scale(1.1); */
+  transform: scale(1.1);
+  transition: 0.25s all;
+  cursor: pointer;
+}
+
+.card:active {
+  transform: scale(1.0);
+  transition: 0.25s all;
+}
