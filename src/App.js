@@ -21,7 +21,12 @@ class App extends Component {
   render() {
     // randomize the array of objects
     rescuebots.sort(function(a, b){return 0.5 - Math.random()});
+    // console.log(rescuebots);
+    // rescuebots.filter(function(index){return index <10});
+    let temprescuebots = rescuebots.slice(0, 10);
+    this.state.rescuebots = temprescuebots;
 
+    
     return (
       <Wrapper>
         <Title>Rescue Bots List</Title>
