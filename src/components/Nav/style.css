@@ -12,7 +12,7 @@ nav {
 }
 
 .logo {
-  width: 200px;
+  width: 175px;
   margin-bottom: -10px;
 }
 
@@ -24,9 +24,11 @@ nav li {
 
 nav #right-wrong {
   width: 55%;
+  color: black;
+  font-weight: bold
 }
 
-ul {
+.nav-header {
   display: flex;
   align-items: center;
 }

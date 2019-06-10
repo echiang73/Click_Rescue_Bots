@@ -4,9 +4,9 @@ import logo from "../../assets/images/logo.png";
 
 function Nav(props) {
   return <nav>
-          <ul>
-            <li className="nav-header">
-              <a href="/"><img src={logo} class="logo" /></a>
+          <ul className="nav-header">
+            <li>
+              <a href="/"><img src={logo} className="logo" alt="Rescue Bot Logo"/></a>
             </li>
 
             <li id="right-wrong">{props.rightWrong}</li>

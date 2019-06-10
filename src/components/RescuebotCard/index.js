@@ -11,7 +11,7 @@ function RescuebotCard(props) {
   // console.log(`${props.image}.png`);
 
   return (
-    <div className="card remove" onClick={() => props.removeRescuebot(props.id)} >
+    <div className="card remove" onClick={() => props.handleClick(props.id)} >
       <div className="img-container">
         <img alt={props.name} src={rescuebots} />
       </div>

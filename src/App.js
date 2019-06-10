@@ -11,16 +11,50 @@ class App extends Component {
     rescuebots,
     currentScore: 0,
     topScore: 0,
-    rightWrong: "Click an image to start!",
+    rightWrong: "Click an image to begin!",
     clicked: []
   };
 
-  removeRescuebot = id => {
+  handleClick = id => {
     // Filter this.state.friends for friends with an id not equal to the id being removed
-    const rescuebots = this.state.rescuebots.filter(rescuebot => rescuebot.id !== id);
+    // const rescuebots = this.state.rescuebots.filter(rescuebot => rescuebot.id !== id);
     // Set this.state.friends equal to the new friends array
-    this.setState({ rescuebots });
+    // this.setState({ rescuebots });
+    if (this.state.clicked.indexOf(id) < 0) {
+      console.log("No match, keep going");
+      this.handleIncrement();
+      this.setState({ clicked: this.state.clicked.concat(id) });
+    }
+    else{
+      console.log("Duplicate, you lose");
+      this.handleReset();
+    }
   };
+
+  handleIncrement = () => {
+    console.log ("Add 1 point to score!");
+    const newScore = this.state.currentScore + 1;
+    this.setState({
+      currentScore: newScore,
+      rightWrong: "You guessed correctly!"
+    });
+    if(newScore > this.state.topScore) {
+      this.setState({
+        topScore: newScore,
+        rightWrong: "You set a new Top Score!!"
+      });
+    }
+  }
+
+  handleReset = () => {
+    console.log("Resetting score!");
+    this.setState({
+      currentScore: 0,
+      topScore: this.state.topScore,
+      rightWrong: "Oops, you guessed incorrectly!",
+      clicked: []
+    });
+  }
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
@@ -47,7 +81,7 @@ class App extends Component {
 
         {this.state.rescuebots.map(rescuebot => (
           <RescuebotCard
-            removeRescuebot={this.removeRescuebot}
+            handleClick={this.handleClick}
             id={rescuebot.id}
             key={rescuebot.id}
             name={rescuebot.name}
