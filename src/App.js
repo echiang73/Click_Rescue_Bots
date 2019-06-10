@@ -3,11 +3,16 @@ import RescuebotCard from "./components/RescuebotCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import rescuebots from "./rescuebots.json";
+import Nav from "./components/Nav";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    rescuebots
+    rescuebots,
+    currentScore: 0,
+    topScore: 0,
+    rightWrong: "Click an image to start!",
+    clicked: []
   };
 
   removeRescuebot = id => {
@@ -29,7 +34,17 @@ class App extends Component {
     
     return (
       <Wrapper>
-        <Title>Rescue Bots List</Title>
+        <Nav
+          rightWrong={this.state.rightWrong}
+          score={this.state.currentScore}
+          topScore={this.state.topScore}
+        />
+
+        <Title>
+        <p>Click on an image to earn points, but don't click on any more than once!</p>
+        </Title>
+        
+
         {this.state.rescuebots.map(rescuebot => (
           <RescuebotCard
             removeRescuebot={this.removeRescuebot}

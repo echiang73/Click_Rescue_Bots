@@ -1,0 +1,38 @@
+nav {
+  width: 100%;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+  background-color: #6CADDC;
+  height: auto;
+  margin-top: -10px;
+  border-radius: 5px;
+  padding-right: 10px;
+  box-shadow: 0 3px 6px #999;
+}
+
+.logo {
+  width: 200px;
+  margin-bottom: -10px;
+}
+
+nav li {
+  display: inline-block;
+  width: 15%;
+  text-align: center;
+}
+
+nav #right-wrong {
+  width: 55%;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 750px) {
+  #current-score, #top-score {
+    font-size: 2rem;
+  }
+}

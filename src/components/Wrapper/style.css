@@ -15,23 +15,3 @@
   align-content: flex-start;
   overflow: auto;
 }
-
-/* 
-.wrapper {
-  background-image: url('./../../assets/img/bg.jpg');
-  height: 160vh;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-content: flex-start;
-  overflow: auto;
-  padding-bottom: 205px;
-} */
-
-/* color: green;
-  
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-color:black; */
