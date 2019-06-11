@@ -52,12 +52,12 @@ class App extends Component {
     }
   }
 
-  shakeWrapper = () => {
-    this.state.shaking.addClass("shake");
-    setTimeout(function(){
-      this.state.shaking.removeClass("shake");
-    }, 50);
-  };
+  // shakeWrapper = () => {
+  //   this.state.shaking.addClass("shake");
+  //   setTimeout(function(){
+  //     this.state.shaking.removeClass("shake");
+  //   }, 50);
+  // };
 
   handleReset = () => {
     console.log("Resetting score!");
@@ -85,7 +85,6 @@ class App extends Component {
     
     return (
       <Wrapper>
-        shaking={this.shaking}
         <Nav
           rightWrong={this.state.rightWrong}
           score={this.state.currentScore}
@@ -106,6 +105,7 @@ class App extends Component {
             image={rescuebot.image}
             // occupation={rescuebot.occupation}
             // location={rescuebot.location}
+            shaking={this.shaking}
           />
         ))}
       </Wrapper>
