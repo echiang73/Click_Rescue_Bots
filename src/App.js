@@ -12,7 +12,8 @@ class App extends Component {
     currentScore: 0,
     topScore: 0,
     rightWrong: "ReactJS Clicky Game: Click an image to begin!",
-    clicked: []
+    clicked: [],
+    // shaking
   };
 
   handleClick = id => {
@@ -51,8 +52,16 @@ class App extends Component {
     }
   }
 
+  shakeWrapper = () => {
+    this.state.shaking.addClass("shake");
+    setTimeout(function(){
+      this.state.shaking.removeClass("shake");
+    }, 50);
+  };
+
   handleReset = () => {
     console.log("Resetting score!");
+    // shakeWrapper();
     this.setState({
       currentScore: 0,
       topScore: this.state.topScore,
@@ -76,6 +85,7 @@ class App extends Component {
     
     return (
       <Wrapper>
+        shaking={this.shaking}
         <Nav
           rightWrong={this.state.rightWrong}
           score={this.state.currentScore}
